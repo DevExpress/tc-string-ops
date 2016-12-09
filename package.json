@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "run-server": "node lib/index.js",
-    "test": "concurrently -r -k  \"npm run run-server\" \"testcafe chrome test/\""
+    "test": "concurrently -r -k -s first  \"npm run run-server\" \"testcafe chrome test/\""
   },
   "repository": {
     "type": "git",
