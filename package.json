@@ -1,0 +1,28 @@
+{
+  "name": "tc-string-ops",
+  "version": "1.0.0",
+  "description": "String operations server",
+  "main": "lib/index.js",
+  "scripts": {
+    "run-server": "node lib/index.js",
+    "test": "concurrently -r -k  \"npm run run-server\" \"testcafe chrome test/\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevExpress/tc-string-ops.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevExpress/tc-string-ops/issues"
+  },
+  "homepage": "https://github.com/DevExpress/tc-string-ops#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "testcafe": "^0.11.1"
+  }
+}
