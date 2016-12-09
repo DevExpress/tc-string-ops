@@ -5,7 +5,7 @@
     <title>String operations</title>
 </head>
 <body>
-<form method="post" action="modify-string">
+<form>
     <div>
         <label>Input text:</label>
         <input type="text" name="text">
@@ -15,5 +15,28 @@
         <button name="hash" value="hash">Hash</button>
     </div>
 </form>
+
+<div id="result"></div>
+
+<script>
+    [].slice.call(document.querySelectorAll('button')).forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            var textInput = document.querySelector('input[type=text]');
+            var xhr       = new XMLHttpRequest();
+            var data      = 'text=' + encodeURIComponent(textInput.value) + '&' + button.name + '=' + button.value;
+
+            xhr.open('post', '/modify-string');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(data);
+
+            xhr.addEventListener('readystatechange', function () {
+                if (this.readyState === 4)
+                    document.querySelector('#result').textContent = this.responseText;
+            });
+
+            e.preventDefault();
+        });
+    });
+</script>
 </body>
 </html>
