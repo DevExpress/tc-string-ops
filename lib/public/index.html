@@ -2,41 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>String operations</title>
+    <title>Title</title>
 </head>
 <body>
-<form>
-    <div>
-        <label>Input text:</label>
-        <input type="text" name="text">
-    </div>
-    <div>
-        <button name="reverse" value="reverse">Reverse string</button>
-        <button name="hash" value="hash">Hash</button>
-    </div>
-</form>
-
-<div id="result"></div>
-
+<img src="unicorn.gif" class="unicorn">
+<style>
+    .unicorn {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
 <script>
-    [].slice.call(document.querySelectorAll('button')).forEach(function (button) {
-        button.addEventListener('click', function (e) {
-            var textInput = document.querySelector('input[type=text]');
-            var xhr       = new XMLHttpRequest();
-            var data      = 'text=' + encodeURIComponent(textInput.value) + '&' + button.name + '=' + button.value;
-
-            xhr.open('post', '/modify-string');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send(data);
-
-            xhr.addEventListener('readystatechange', function () {
-                if (this.readyState === 4)
-                    document.querySelector('#result').textContent = this.responseText;
-            });
-
-            e.preventDefault();
-        });
-    });
+    window.setTimeout(function () {
+        document.location = 'form.html';
+    }, 2000);
 </script>
 </body>
 </html>
